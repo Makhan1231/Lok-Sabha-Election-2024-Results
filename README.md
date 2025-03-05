@@ -15,17 +15,28 @@ Ensure you have the following libraries installed before running the notebook:
 - Pandas
 - Seaborn
 - NumPy
+
 ## Datasets
 
 The dataset used in this project is stored in a CSV file named election_results_2024.csv. It contains the following columns:
-Constituency: The name of the constituency.
-Const. No.: The constituency number.
-Leading Candidate: The name of the leading candidate.
-Leading Party: The party of the leading candidate.
-Trailing Candidate: The name of the trailing candidate.
-Trailing Party: The party of the trailing candidate.
-Margin: The margin of victory.
-Status: The status of the result (e.g., "Result Declared").
+- Constituency: The name of the constituency.
+- Const. No.: The constituency number.
+- Leading Candidate: The name of the leading candidate.
+- Leading Party: The party of the leading candidate.
+- Trailing Candidate: The name of the trailing candidate.
+- Trailing Party: The party of the trailing candidate.
+- Margin: The margin of victory.
+- Status: The status of the result (e.g., "Result Declared").
+
+## Key Functions and Methods
+
+- pd.read_csv('election_results_2024.csv'): Loads the dataset into a Pandas DataFrame.
+- data.head(10): Displays the first 10 rows of the dataset.
+- data.groupby('Leading Party')['Margin'].sum().sort_values(ascending=False): Groups the data by the leading party and calculates the total margin of victory for 
+  each party.
+- data.loc[data['Margin'].idxmax()]: Identifies the row with the highest margin of victory.
+- data.loc[data['Margin'].idxmin()]: Identifies the row with the lowest margin of victory.
+- sns.barplot(x=party_votes.index, y=party_votes.values): Plots the number of seats won by each party using a bar plot.
 
 ## Project Structure
 The analysis follows these main steps:
